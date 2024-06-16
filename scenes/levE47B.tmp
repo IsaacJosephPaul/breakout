@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://12kliyo7ocdj"]
+
+[ext_resource type="PackedScene" uid="uid://dcpui83r26k2h" path="res://scenes/paddle.tscn" id="1_lc6ta"]
+[ext_resource type="PackedScene" uid="uid://bkr6odnw2s47o" path="res://scenes/ball.tscn" id="1_xanga"]
+
+[node name="Level" type="Node2D"]
+
+[node name="ball" parent="." instance=ExtResource("1_xanga")]
+position = Vector2(0, -100)
+
+[node name="paddle" parent="." instance=ExtResource("1_lc6ta")]
+position = Vector2(0, 260)
+
+[node name="Camera2D" type="Camera2D" parent="."]

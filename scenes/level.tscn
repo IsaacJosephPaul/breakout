@@ -1,0 +1,176 @@
+[gd_scene load_steps=10 format=3 uid="uid://12kliyo7ocdj"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_exynw"]
+[ext_resource type="PackedScene" uid="uid://dcpui83r26k2h" path="res://scenes/paddle.tscn" id="1_lc6ta"]
+[ext_resource type="PackedScene" uid="uid://c6qauj2djyt34" path="res://scenes/ball.tscn" id="1_xanga"]
+[ext_resource type="PackedScene" uid="uid://dkaibes73aygr" path="res://scenes/brick.tscn" id="3_8namf"]
+[ext_resource type="PackedScene" uid="uid://b2vrujbenn4pb" path="res://scenes/orange_brick.tscn" id="4_noufx"]
+[ext_resource type="PackedScene" uid="uid://b6vfarlm68e2w" path="res://scenes/yellow_brick.tscn" id="5_qc2b3"]
+[ext_resource type="PackedScene" uid="uid://dhwp1vkygmy7q" path="res://scenes/green_brick.tscn" id="6_30bt7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03cmd"]
+size = Vector2(1222, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wntrn"]
+size = Vector2(86, 648)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_exynw")
+
+[node name="ball" parent="." instance=ExtResource("1_xanga")]
+position = Vector2(0, -3)
+mass = 0.01
+
+[node name="paddle" parent="." instance=ExtResource("1_lc6ta")]
+position = Vector2(0, 260)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="topBorder" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-4, -353)
+shape = SubResource("RectangleShape2D_03cmd")
+
+[node name="leftWall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-619, 0)
+shape = SubResource("RectangleShape2D_wntrn")
+
+[node name="rightWall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(619, -1)
+shape = SubResource("RectangleShape2D_wntrn")
+
+[node name="red_bricks" type="Node" parent="."]
+
+[node name="brick" parent="red_bricks" instance=ExtResource("3_8namf")]
+position = Vector2(0, -264)
+
+[node name="brick2" parent="red_bricks" instance=ExtResource("3_8namf")]
+position = Vector2(-128, -264)
+
+[node name="brick3" parent="red_bricks" instance=ExtResource("3_8namf")]
+position = Vector2(128, -264)
+
+[node name="brick4" parent="red_bricks" instance=ExtResource("3_8namf")]
+position = Vector2(256, -264)
+
+[node name="brick5" parent="red_bricks" instance=ExtResource("3_8namf")]
+position = Vector2(384, -264)
+
+[node name="brick6" parent="red_bricks" instance=ExtResource("3_8namf")]
+position = Vector2(-256, -264)
+
+[node name="brick7" parent="red_bricks" instance=ExtResource("3_8namf")]
+position = Vector2(-384, -264)
+
+[node name="brick9" parent="red_bricks" instance=ExtResource("3_8namf")]
+position = Vector2(-512, -264)
+
+[node name="brick8" parent="red_bricks" instance=ExtResource("3_8namf")]
+position = Vector2(512, -264)
+
+[node name="orange_bricks" type="Node" parent="."]
+
+[node name="orange_brick" parent="orange_bricks" instance=ExtResource("4_noufx")]
+position = Vector2(-512, -214)
+
+[node name="orange_brick2" parent="orange_bricks" instance=ExtResource("4_noufx")]
+position = Vector2(-384, -214)
+
+[node name="orange_brick3" parent="orange_bricks" instance=ExtResource("4_noufx")]
+position = Vector2(-256, -214)
+
+[node name="orange_brick4" parent="orange_bricks" instance=ExtResource("4_noufx")]
+position = Vector2(-128, -214)
+
+[node name="orange_brick5" parent="orange_bricks" instance=ExtResource("4_noufx")]
+position = Vector2(0, -214)
+
+[node name="orange_brick6" parent="orange_bricks" instance=ExtResource("4_noufx")]
+position = Vector2(128, -214)
+
+[node name="orange_brick7" parent="orange_bricks" instance=ExtResource("4_noufx")]
+position = Vector2(256, -214)
+
+[node name="orange_brick8" parent="orange_bricks" instance=ExtResource("4_noufx")]
+position = Vector2(384, -214)
+
+[node name="orange_brick9" parent="orange_bricks" instance=ExtResource("4_noufx")]
+position = Vector2(512, -214)
+
+[node name="yellow_bricks" type="Node" parent="."]
+
+[node name="red_brick" parent="yellow_bricks" instance=ExtResource("5_qc2b3")]
+position = Vector2(-512, -164)
+
+[node name="red_brick2" parent="yellow_bricks" instance=ExtResource("5_qc2b3")]
+position = Vector2(-384, -164)
+
+[node name="red_brick3" parent="yellow_bricks" instance=ExtResource("5_qc2b3")]
+position = Vector2(-256, -164)
+
+[node name="red_brick4" parent="yellow_bricks" instance=ExtResource("5_qc2b3")]
+position = Vector2(-128, -164)
+
+[node name="red_brick5" parent="yellow_bricks" instance=ExtResource("5_qc2b3")]
+position = Vector2(0, -164)
+
+[node name="red_brick6" parent="yellow_bricks" instance=ExtResource("5_qc2b3")]
+position = Vector2(128, -164)
+
+[node name="red_brick7" parent="yellow_bricks" instance=ExtResource("5_qc2b3")]
+position = Vector2(256, -164)
+
+[node name="red_brick8" parent="yellow_bricks" instance=ExtResource("5_qc2b3")]
+position = Vector2(384, -164)
+
+[node name="red_brick9" parent="yellow_bricks" instance=ExtResource("5_qc2b3")]
+position = Vector2(512, -164)
+
+[node name="green_bricks" type="Node" parent="."]
+
+[node name="blue_brick1" parent="green_bricks" instance=ExtResource("6_30bt7")]
+position = Vector2(-512, -114)
+
+[node name="blue_brick21" parent="green_bricks" instance=ExtResource("6_30bt7")]
+position = Vector2(-384, -114)
+
+[node name="blue_brick31" parent="green_bricks" instance=ExtResource("6_30bt7")]
+position = Vector2(-256, -114)
+
+[node name="blue_brick41" parent="green_bricks" instance=ExtResource("6_30bt7")]
+position = Vector2(-128, -114)
+
+[node name="blue_brick51" parent="green_bricks" instance=ExtResource("6_30bt7")]
+position = Vector2(0, -114)
+
+[node name="blue_brick61" parent="green_bricks" instance=ExtResource("6_30bt7")]
+position = Vector2(128, -114)
+
+[node name="blue_brick71" parent="green_bricks" instance=ExtResource("6_30bt7")]
+position = Vector2(256, -114)
+
+[node name="blue_brick81" parent="green_bricks" instance=ExtResource("6_30bt7")]
+position = Vector2(384, -114)
+
+[node name="blue_brick91" parent="green_bricks" instance=ExtResource("6_30bt7")]
+position = Vector2(512, -114)
+
+[node name="lives" type="Label" parent="."]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -497.0
+offset_bottom = -281.0
+theme_override_font_sizes/font_size = 24
+text = "Lives: 3"
+
+[node name="gameover_screen" type="Label" parent="."]
+visible = false
+offset_left = -127.0
+offset_top = -29.0
+offset_right = 128.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 21
+text = "Game Over :(
+Press space to play again!"
+horizontal_alignment = 1
