@@ -4,6 +4,7 @@ var SPEED = 300
 var pos = Vector2(0, 0)
 var accel = 1.2
 var initial_impulse = Vector2(randi_range(-300,300), -300)
+var force_multiplier = 1.1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,7 +26,6 @@ func _process(delta):
 		queue_free()
 func _physics_process(delta):
 	var speed = linear_velocity.length()
-	print(speed)
 	if speed < 400:
 		linear_velocity = linear_velocity.normalized() * 400
 
@@ -36,9 +36,13 @@ func _on_body_entered(body):
 		body.queue_free()
 		global.brick_destroyed()
 		$explode.play()
+		if global.bricks_destroyed >= 36:
+			self.queue_free()
 	elif body.has_method("player"):
 		print("paddle collide")
-		var force = Vector2(0, -1) * 1.3
+		if force_multiplier < 1.8:
+			force_multiplier += 0.1
+		var force = Vector2(0, -1) * force_multiplier
 		if linear_velocity.length() < 900:
 			self.apply_central_impulse(force)
 		$blip.play()

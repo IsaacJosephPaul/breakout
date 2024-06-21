@@ -164,13 +164,16 @@ offset_bottom = -281.0
 theme_override_font_sizes/font_size = 24
 text = "Lives: 3"
 
-[node name="gameover_screen" type="Label" parent="."]
-visible = false
-offset_left = -127.0
-offset_top = -29.0
-offset_right = 128.0
-offset_bottom = 34.0
-theme_override_font_sizes/font_size = 21
-text = "Game Over :(
-Press space to play again!"
-horizontal_alignment = 1
+[node name="score" type="Label" parent="."]
+offset_left = 362.0
+offset_top = -323.0
+offset_right = 575.0
+offset_bottom = -280.0
+theme_override_font_sizes/font_size = 24
+text = "Score: 0"
+horizontal_alignment = 2
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
